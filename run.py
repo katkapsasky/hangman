@@ -38,3 +38,10 @@ class Hangman():
         print('\n')
         print(' '.join(self.progress))
 
+    def update_progress(self, letter, indexes):
+        """
+        Method to update the secret word with the guessed letters
+        """
+        for index in indexes:
+            self.progress[index] = letter
+
