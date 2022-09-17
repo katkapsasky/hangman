@@ -34,7 +34,7 @@ class Hangman():
         and remaining blank spaces
         """
         print('\n')
-        print('\n'.join(HANGMAN[:self.wrong_guess]))
+        print('\n'.join(hangman[:self.wrong_guess]))
         print('\n')
         print(' '.join(self.progress))
 
@@ -49,5 +49,5 @@ class Hangman():
         """
         Method to get the user's guess
         """
-        user_input = input('\nPlease type a letter: ')
+        user_input = input('\nEnter your guess here: ')
         return user_input
