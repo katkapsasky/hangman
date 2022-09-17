@@ -45,3 +45,9 @@ class Hangman():
         for index in indexes:
             self.progress[index] = letter
 
+    def get_user_input(self):
+        """
+        Method to get the user's guess
+        """
+        user_input = input('\nPlease type a letter: ')
+        return user_input
