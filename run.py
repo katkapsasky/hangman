@@ -1,8 +1,17 @@
 """
 Code for creating a hangman game in python
 """
-# Module for generating random integers
+# Modules for generating random integers
+# and adding a time lag between steps
 import random
+import time
+
+# Welcome
+name = input('Welcome to Hangman! Please enter your name: ')
+print("Hi " + name + "!")
+print("The aim of Hangman is to guess the secret word chosen by the computer.")
+print("Let's play!")
+time.sleep(2)
 
 # Code to create hangman
 HANGMAN = [
@@ -66,7 +75,7 @@ class Hangman():
         Method to get the user's guess
         """
         user_input = input('\nEnter your guess here: ')
-    
+   
         return user_input
 
     def play(self):
@@ -95,7 +104,7 @@ class Hangman():
                 # before running out of attempts
                 if self.progress.count('_') == 0:
                     print('\nYay! You won!')
-                    print(f'The word is {0}'.format(self.secret_word))
+                    print(f'The word is {secret_word}')
                     quit()
             else:
                 self.wrong_guess += 1
