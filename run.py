@@ -10,8 +10,31 @@ import time
 name = input('Welcome to Hangman! Please enter your name: ')
 print("Hi " + name + "!")
 print("The aim of Hangman is to guess the secret word chosen by the computer.")
-print("Let's play!")
+
+
+# Choose difficulty
+def choose_diff():
+    """
+    Function for user to choose difficulty level
+    """
+    prompt = "Please choose a level (easy, medium, hard).\n>"
+    choice = ""
+    while choice not in ['easy', 'medium', 'hard']:
+        choice = input(prompt)
+    change_diff(choice)
+
+
+def change_diff(level):
+    """
+    Function to give user option to change level
+    """
+    message = "You picked " + level
+    print(message)
+    print("Let's play!")
+
+
 time.sleep(2)
+
 
 # Code to create hangman
 HANGMAN = [
@@ -75,7 +98,6 @@ class Hangman():
         Method to get the user's guess
         """
         user_input = input('\nEnter your guess here: ')
-   
         return user_input
 
     def play(self):
@@ -115,3 +137,5 @@ if __name__ == '__main__':
     secret_word = random.choice(WORDS)
     hangman = Hangman(secret_word)
     hangman.play()
+
+DIFFICULTY = choose_diff()
