@@ -5,8 +5,10 @@ Code for creating a hangman game in python
 # and adding a time lag between steps
 import random
 import time
+from easy import *
 
 # Welcome
+global DIFF_LEVEL
 name = input('Welcome to Hangman! Please enter your name: ')
 print("Hi " + name + "!")
 print("The aim of Hangman is to guess the secret word chosen by the computer.")
@@ -21,7 +23,7 @@ def choose_diff():
     choice = ""
     while choice not in ['easy', 'medium', 'hard']:
         choice = input(prompt)
-    change_diff(choice)
+    return change_diff(choice)
 
 
 def change_diff(level):
@@ -30,7 +32,9 @@ def change_diff(level):
     """
     message = "You picked " + level
     print(message)
+    DIFF_LEVEL = level
     print("Let's play!")
+    return DIFF_LEVEL
 
 
 time.sleep(2)
@@ -48,8 +52,13 @@ HANGMAN = [
 ]
 
 # Words to be guessed
-WORDS = [
-    'hello', 'world'
+
+MEDIUM_WORDS = [
+    'python', 'javascript'
+]
+
+HARD_WORDS = [
+    'kapsasky', 'optimistic'
 ]
 
 
@@ -130,12 +139,19 @@ class Hangman():
                     quit()
             else:
                 self.wrong_guess += 1
-        print('\nOh no! You lost!')
+
+        if self.wrong_guess == len(HANGMAN):
+            self.print_game_status()
+            print('\nOh no! You lost!')
 
 
 if __name__ == '__main__':
-    secret_word = random.choice(WORDS)
+    DIFF_LEVEL = choose_diff()
+    if DIFF_LEVEL == 'easy':
+        secret_word = random.choice(EASY_WORDS)
+    elif DIFF_LEVEL == 'medium':
+        secret_word = random.choice(MEDIUM_WORDS)
+    else:
+        secret_word = random.choice(HARD_WORDS)
     hangman = Hangman(secret_word)
     hangman.play()
-
-DIFFICULTY = choose_diff()
