@@ -5,7 +5,11 @@ Code for creating a hangman game in python
 # and adding a time lag between steps
 import random
 import time
+
+# Import files with words to be guessed
 from easy import *
+from medium import *
+from hard import *
 
 # Welcome
 global DIFF_LEVEL
@@ -46,19 +50,9 @@ HANGMAN = [
     '|       |',
     '|       O',
     '|       |',
-    r'|      /|\ ',
+    '|      /|\\ ',
     '|       |',
-    r'|      / \ '
-]
-
-# Words to be guessed
-
-MEDIUM_WORDS = [
-    'python', 'javascript'
-]
-
-HARD_WORDS = [
-    'kapsasky', 'optimistic'
+    '|      / \\'
 ]
 
 
