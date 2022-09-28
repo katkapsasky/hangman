@@ -13,7 +13,7 @@ from hard import *
 
 # Welcome
 global DIFF_LEVEL
-name = input('Welcome to Hangman! Please enter your name: ')
+name = input('Welcome to Hangman! Please enter your name:\n')
 print("Hi " + name + "!")
 print("The aim of Hangman is to guess the secret word chosen by the computer.")
 
@@ -100,7 +100,7 @@ class Hangman():
         """
         Method to get the user's guess
         """
-        user_input = input('\nEnter your guess here: ')
+        user_input = input('\nEnter your guess here:\n')
         return user_input
 
     def play(self):
