@@ -1,4 +1,4 @@
-#Hangman
+# Hangman
 
 Hangman is a Python terminal game which runs in the Code Institute mock terminal on Heroku.
 
@@ -31,6 +31,15 @@ For all testing please refer to the [TESTING.md](TESTING.md) file.
 ---
 
 ## Deployment
+
+This project was deployed using Code Institute's mock terminal for Heroku.
+
+Steps for deployment:
+- Fork or clone this repository
+- Create a new Heroku app
+- Set the buildbacks to Python and NodeJS in that order
+- Link the Heroku app to the repository
+- Click on Deploy
 
 ---
 
