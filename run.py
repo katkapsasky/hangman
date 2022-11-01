@@ -27,21 +27,23 @@ def choose_diff():
     choice = ""
     while choice not in ['easy', 'medium', 'hard']:
         choice = input(prompt)
-    return change_diff(choice)
+    return current_diff(choice)
 
 
-def change_diff(level):
+time.sleep(1)
+
+
+def current_diff(level):
     """
-    Function to give user option to change level
+    Function to inform user of difficulty
+    level chosen
     """
     message = "You picked " + level
     print(message)
     DIFF_LEVEL = level
+    time.sleep(1)
     print("Let's play!")
     return DIFF_LEVEL
-
-
-time.sleep(2)
 
 
 # Code to create hangman
