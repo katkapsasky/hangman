@@ -72,12 +72,19 @@ class Hangman():
         """
         return [i for i, char in enumerate(self.secret_word) if letter == char]
 
-    def invalid_input(self, input_):
+    def invalid_input_digit(self, input_):
         """
         Method to validate if the user input is correct
-        Checks if the user inputs a number or more than one character
+        Checks if the user inputs a number
         """
-        return input_.isdigit() or (input_.isalpha() and len(input_) > 1)
+        return input_.isdigit()
+
+    def invalid_input_len(self, input_):
+        """
+        Method to validate if the user input is correct
+        Checks if the user inputs more than one character
+        """
+        return input_.isalpha() and len(input_) > 1
 
     def print_game_status(self):
         """
@@ -114,8 +121,11 @@ class Hangman():
             user_input = self.get_user_input()
 
             # Validate user input
-            if self.invalid_input(user_input):
+            if self.invalid_input_digit(user_input):
                 print('Please guess a letter!')
+                continue
+            if self.invalid_input_len(user_input):
+                print('Please guess only one letter at a time!')
                 continue
             # Check if the letter has already been guessed
             if user_input in self.progress:
