@@ -11,8 +11,10 @@ from easy import *
 from medium import *
 from hard import *
 
-# Welcome
 global DIFF_LEVEL
+GAME_OVER = False
+
+# Welcome
 name = input('Welcome to Hangman! Please enter your name:\n')
 print("Hi " + name + "!")
 print("The aim of Hangman is to guess the secret word chosen by the computer.")
@@ -112,6 +114,13 @@ class Hangman():
         user_input = input('\nEnter your guess here:\n')
         return user_input
 
+    def replay(self):
+        """
+        Method to ask user if they want to replay
+        """
+        user_replay = input('\nWould you like to play again? Type Y or N:\n')
+        return user_replay
+
     def play(self):
         """
         Method to play the game
@@ -142,22 +151,28 @@ class Hangman():
                 if self.progress.count('_') == 0:
                     print('\nYay! You won!')
                     print(f'The word is {secret_word}')
-                    quit()
+                    self.replay()
+                    if user_input == 'N' or 'n':
+                        quit()
             else:
                 self.wrong_guess += 1
 
         if self.wrong_guess == len(HANGMAN):
             self.print_game_status()
             print('\nOh no! You lost!')
+            self.replay()
+            if user_input == 'N' or 'n':
+                quit()
 
 
-if __name__ == '__main__':
-    DIFF_LEVEL = choose_diff()
-    if DIFF_LEVEL == 'easy':
-        secret_word = random.choice(EASY_WORDS)
-    elif DIFF_LEVEL == 'medium':
-        secret_word = random.choice(MEDIUM_WORDS)
-    else:
-        secret_word = random.choice(HARD_WORDS)
-    hangman = Hangman(secret_word)
-    hangman.play()
+while GAME_OVER is False:
+    if __name__ == '__main__':
+        DIFF_LEVEL = choose_diff()
+        if DIFF_LEVEL == 'easy':
+            secret_word = random.choice(EASY_WORDS)
+        elif DIFF_LEVEL == 'medium':
+            secret_word = random.choice(MEDIUM_WORDS)
+        else:
+            secret_word = random.choice(HARD_WORDS)
+        hangman = Hangman(secret_word)
+        hangman.play()
