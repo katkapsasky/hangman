@@ -160,13 +160,17 @@ class Hangman():
         if self.wrong_guess == len(HANGMAN):
             self.print_game_status()
             print('\nOh no! You lost!')
-            self.replay()
-            if user_input == 'N' or 'n':
-                quit()
+            user_prompt = self.replay()
+            if user_prompt == 'N' or user_prompt == 'n':
+                # quit()
+                global GAME_OVER
+                GAME_OVER = True
+            # else:
+            #     hangman.play()
 
 
-while GAME_OVER is False:
-    if __name__ == '__main__':
+if __name__ == '__main__':
+    while GAME_OVER is False:
         DIFF_LEVEL = choose_diff()
         if DIFF_LEVEL == 'easy':
             secret_word = random.choice(EASY_WORDS)
