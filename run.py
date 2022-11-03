@@ -161,6 +161,9 @@ class Hangman():
                 # quit()
                 GAME_OVER
                 GAME_OVER = True
+            elif user_prompt != 'Y' or user_prompt != 'y':
+                print("Please enter Y to play again or N to quit")
+                self.replay()
             # else:
             #     hangman.play()
 
