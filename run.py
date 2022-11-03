@@ -14,20 +14,25 @@ from hard import *
 # Import file to draw the hangman
 from hangman import *
 
+global NAME
 global DIFF_LEVEL
+global GAME_OVER
 GAME_OVER = False
 
 
 # Welcome
 def get_username():
     while True:
-        name = input('Welcome to Hangman! Please enter your name:\n')
-        if name.isalpha():
-            print("Hi " + name + "!")
-            print("The aim of Hangman is to guess the secret word chosen by the computer.")
+        global NAME
+        NAME = input('Welcome to Hangman! Please enter your name:\n')
+        if NAME.isalpha():
+            print(f"Hi {NAME}!")
+            print(
+                "The aim of Hangman is to guess the secret "
+                "word chosen by the computer.")
             break
         else:
-            print(f"{name} is not valid. Please try again.")
+            print(f"{NAME} is not valid. Please try again.")
 
 
 # Choose difficulty
@@ -150,30 +155,35 @@ class Hangman():
                     print('\nYay! You won!')
                     print(f'The word is {secret_word}')
                     # Check if user would like to play again
-                    user_prompt = self.replay()
-                    if user_prompt == 'N' or user_prompt == 'n':
-                        # quit()
-                        print('Thanks for playing' + name + '!')
-                        global GAME_OVER
-                        GAME_OVER = True
-                    # else:
-                    #   hangman.play()
+                    while True:
+                        user_prompt = self.replay()
+                        if user_prompt.lower() == 'n':
+                            print(f'Thanks for playing {NAME}!')
+                            global GAME_OVER
+                            GAME_OVER = True
+                            break
+                        elif user_prompt.lower() == 'y':
+                            break
+                        else:
+                            print(f"{user_prompt} is not valid.")
+                            print("Please enter Y to play again or N to quit")
             else:
                 self.wrong_guess += 1
 
         if self.wrong_guess == len(HANGMAN):
             self.print_game_status()
             print('\nOh no! You lost!')
-            user_prompt = self.replay()
-            if user_prompt == 'N' or user_prompt == 'n':
-                # quit()
-                GAME_OVER
-                GAME_OVER = True
-            elif user_prompt != 'Y' or user_prompt != 'y':
-                print("Please enter Y to play again or N to quit")
-                self.replay()
-            # else:
-            #     hangman.play()
+            while True:
+                user_prompt = self.replay()
+                if user_prompt.lower() == 'n':
+                    print(f'Thanks for playing {NAME}!')
+                    GAME_OVER = True
+                    break
+                elif user_prompt.lower() == 'y':
+                    break
+                else:
+                    print(f"{user_prompt} is not valid.")
+                    print("Please enter Y to play again or N to quit")
 
 
 if __name__ == '__main__':
