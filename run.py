@@ -17,10 +17,17 @@ from hangman import *
 global DIFF_LEVEL
 GAME_OVER = False
 
+
 # Welcome
-name = input('Welcome to Hangman! Please enter your name:\n')
-print("Hi " + name + "!")
-print("The aim of Hangman is to guess the secret word chosen by the computer.")
+def get_username():
+    while True:
+        name = input('Welcome to Hangman! Please enter your name:\n')
+        if name.isalpha():
+            print("Hi " + name + "!")
+            print("The aim of Hangman is to guess the secret word chosen by the computer.")
+            break
+        else:
+            print(f"{name} is not valid. Please try again.")
 
 
 # Choose difficulty
@@ -146,6 +153,7 @@ class Hangman():
                     user_prompt = self.replay()
                     if user_prompt == 'N' or user_prompt == 'n':
                         # quit()
+                        print('Thanks for playing' + name + '!')
                         global GAME_OVER
                         GAME_OVER = True
                     # else:
@@ -169,6 +177,7 @@ class Hangman():
 
 
 if __name__ == '__main__':
+    get_username()
     while GAME_OVER is False:
         DIFF_LEVEL = choose_diff()
         if DIFF_LEVEL == 'easy':
