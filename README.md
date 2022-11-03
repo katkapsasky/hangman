@@ -18,6 +18,7 @@ When a player guesses a letter correctly, it will show up as many times as it ap
 To win the game, players have to guess the secret word before the hangman is fully formed.
 
 If a player guesses incorrectly, part of the hangman will be drawn. Players will have six wrong attempts to guess the word and on the seventh the hangman will be fully formed and the player loses.
+
 ---
 
 ## Features
@@ -29,6 +30,10 @@ If a player guesses incorrectly, part of the hangman will be drawn. Players will
 ---
 
 ## Data Model
+
+I used the Hangman game class for my data model. This contains the functions for the game to be played by requesting a guess from the player, validating that the user hasn't guessed a digit instead of a letter, more than one letter, or a letter they have already guessed, tracking player progress and drawing the hangman.
+
+The class also has a function to offer players the option to replay once the game is over.
 
 ---
 
