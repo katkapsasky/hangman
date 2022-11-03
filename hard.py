@@ -1,3 +1,4 @@
 HARD_WORDS = [
-    'kapsasky', 'optimistic'
+    'awkward', 'bandwagon', 'galvanize', 'haphazard', 'transplant', 'knapsack',
+    'sphinx', 'bookworm', 'rhubarb', 'zombie'
 ]
