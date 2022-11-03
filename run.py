@@ -11,6 +11,9 @@ from easy import *
 from medium import *
 from hard import *
 
+# Import file to draw the hangman
+from hangman import *
+
 global DIFF_LEVEL
 GAME_OVER = False
 
@@ -46,18 +49,6 @@ def current_diff(level):
     time.sleep(1)
     print("Let's play!")
     return DIFF_LEVEL
-
-
-# Code to create hangman
-HANGMAN = [
-    '________',
-    '|       |',
-    '|       O',
-    '|       |',
-    '|      /|\\ ',
-    '|       |',
-    '|      / \\'
-]
 
 
 class Hangman():
