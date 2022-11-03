@@ -151,9 +151,13 @@ class Hangman():
                 if self.progress.count('_') == 0:
                     print('\nYay! You won!')
                     print(f'The word is {secret_word}')
-                    self.replay()
-                    if user_input == 'N' or 'n':
-                        quit()
+                    user_prompt = self.replay()
+                    if user_prompt == 'N' or user_prompt == 'n':
+                        # quit()
+                        global GAME_OVER
+                        GAME_OVER = True
+                    # else:
+                    #   hangman.play()
             else:
                 self.wrong_guess += 1
 
@@ -163,7 +167,7 @@ class Hangman():
             user_prompt = self.replay()
             if user_prompt == 'N' or user_prompt == 'n':
                 # quit()
-                global GAME_OVER
+                GAME_OVER
                 GAME_OVER = True
             # else:
             #     hangman.play()
