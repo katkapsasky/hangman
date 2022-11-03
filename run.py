@@ -155,35 +155,33 @@ class Hangman():
                     print('\nYay! You won!')
                     print(f'The word is {secret_word}')
                     # Check if user would like to play again
-                    while True:
-                        user_prompt = self.replay()
-                        if user_prompt.lower() == 'n':
-                            print(f'Thanks for playing {NAME}!')
-                            global GAME_OVER
-                            GAME_OVER = True
-                            break
-                        elif user_prompt.lower() == 'y':
-                            break
-                        else:
-                            print(f"{user_prompt} is not valid.")
-                            print("Please enter Y to play again or N to quit")
+                    user_prompt = self.replay()
+                    if user_prompt.lower() == 'n':
+                        print(f'Thanks for playing {NAME}!')
+                        quit()
+                        break
+                    elif user_prompt.lower() == 'y':
+                        break
+                    else:
+                        print(f"{user_prompt} is not valid.")
+                        print("Please enter Y to play again or N to quit")
             else:
                 self.wrong_guess += 1
 
-        if self.wrong_guess == len(HANGMAN):
-            self.print_game_status()
-            print('\nOh no! You lost!')
-            while True:
-                user_prompt = self.replay()
-                if user_prompt.lower() == 'n':
-                    print(f'Thanks for playing {NAME}!')
-                    GAME_OVER = True
-                    break
-                elif user_prompt.lower() == 'y':
-                    break
-                else:
-                    print(f"{user_prompt} is not valid.")
-                    print("Please enter Y to play again or N to quit")
+            if self.wrong_guess == len(HANGMAN):
+                self.print_game_status()
+                print('\nOh no! You lost!')
+                while True:
+                    user_prompt = self.replay()
+                    if user_prompt.lower() == 'n':
+                        print(f'Thanks for playing {NAME}!')
+                        GAME_OVER = True
+                        quit()
+                    elif user_prompt.lower() == 'y':
+                        break
+                    else:
+                        print(f"{user_prompt} is not valid.")
+                        print("Please enter Y to play again or N to quit")
 
 
 if __name__ == '__main__':
