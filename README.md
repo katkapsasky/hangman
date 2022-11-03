@@ -25,6 +25,18 @@ If a player guesses incorrectly, part of the hangman will be drawn. Players will
 
 ### Existing Features
 
+- Welcome and enter name
+
+- Choose difficulty
+
+- Random word generation
+  - Word is hidden from player and dashes are shown for each letter in the word
+
+- Input validation and error checking
+  - You cannot guess a number or special character
+  - You cannot guess multiple letters at a time
+  - You cannot guess the same letter twice 
+
 ### Future Features
 
 ---
