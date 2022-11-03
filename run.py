@@ -133,15 +133,16 @@ class Hangman():
             if user_input in self.progress:
                 print('You have already guessed that letter!')
                 continue
-
+            # Update word with correct guess
             if user_input in self.secret_word:
                 indexes = self.find_secret_word_letters(user_input)
                 self.update_progress(user_input, indexes)
                 # If the user guesses all letters
-                # before running out of attempts
+                # before running out of attempts they win
                 if self.progress.count('_') == 0:
                     print('\nYay! You won!')
                     print(f'The word is {secret_word}')
+                    # Check if user would like to play again
                     user_prompt = self.replay()
                     if user_prompt == 'N' or user_prompt == 'n':
                         # quit()
