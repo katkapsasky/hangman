@@ -1,6 +1,10 @@
 """
 Code for creating a hangman game in python
 """
+
+# Module to enable function to clear code between functions
+import os
+
 # Modules for generating random integers
 # and adding a time lag between steps
 import random
@@ -20,11 +24,19 @@ global GAME_OVER
 GAME_OVER = False
 
 
+def clear():
+    """
+    Clear function to clean-up the terminal
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+
+
 # Welcome
 def get_username():
     while True:
         global NAME
         NAME = input('Welcome to Hangman! Please enter your name:\n')
+        clear()
         if NAME.isalpha():
             print(f"Hi {NAME}!")
             print(
@@ -145,6 +157,7 @@ class Hangman():
             if user_input in self.progress:
                 print('You have already guessed that letter!')
                 continue
+            clear()
             # Update word with correct guess
             if user_input in self.secret_word:
                 indexes = self.find_secret_word_letters(user_input)
@@ -154,6 +167,8 @@ class Hangman():
                 if self.progress.count('_') == 0:
                     print('\nYay! You won!')
                     print(f'The word is {secret_word}')
+                    time.sleep(2)
+                    clear()
                     # Check if user would like to play again
                     user_prompt = self.replay()
                     if user_prompt.lower() == 'n':
@@ -171,6 +186,8 @@ class Hangman():
             if self.wrong_guess == len(HANGMAN):
                 self.print_game_status()
                 print('\nOh no! You lost!')
+                time.sleep(2)
+                clear()
                 while True:
                     user_prompt = self.replay()
                     if user_prompt.lower() == 'n':
@@ -194,5 +211,6 @@ if __name__ == '__main__':
             secret_word = random.choice(MEDIUM_WORDS)
         else:
             secret_word = random.choice(HARD_WORDS)
+        clear()
         hangman = Hangman(secret_word)
         hangman.play()
