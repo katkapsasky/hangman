@@ -55,12 +55,16 @@ def main_menu():
     read the game rules, or quit
     """
     print(
-        "Welcome to Hangman! The aim of the game is to guess the secret "
-        "word chosen by the computer.")
+        "Welcome to Hangman! "
+        "The aim of the game is to guess the secret word "
+        "chosen by the computer."
+    )
     while True:
         global MENU_CHOICE
-        MENU_CHOICE = input("Type P to Play, R for the Game Rules "
-                            "or Q to Quit:\n")
+        MENU_CHOICE = input(
+            "Type P to Play, R for the Game Rules "
+            "or Q to Quit:\n"
+        )
         clear()
         if MENU_CHOICE.lower() == 'p':
             print("Let's play!")
@@ -69,17 +73,28 @@ def main_menu():
             break
         elif MENU_CHOICE.lower() == 'r':
             print("HANGMAN GAME RULES")
-            print("The aim of the game is to guess the secret "
-                  "word chosen by the computer.")
-            print("Every wrong guess will result in part of the hangman "
-                  "being drawn. If you guess incorrectly 7 times, "
-                  " the hangman will be fully formed and you lose.")
-            print("To win, guess the letter before you run out of attempts.")
-            print("Before you play you will have the option to choose "
-                  "the difficulty of the word to guess; easy, medium or hard")
+            print(
+                "The aim of the game is to guess the secret "
+                "word chosen by the computer.")
+            print(
+                "Every wrong guess will result in part of the hangman "
+                "being drawn. \n"
+                "If you guess incorrectly 7 times, "
+                " the hangman will be fully formed and you lose."
+            )
+            print(
+                "To win, guess the letter before you run out of attempts."
+            )
+            print(
+                "Before you play you will have the option to choose "
+                "the difficulty of the word to guess; \n"
+                "easy, medium or hard"
+            )
             global READY_TO_PLAY
-            READY_TO_PLAY = input("Are you ready to play? Type Y to play "
-                                  "or N to quit:\n")
+            READY_TO_PLAY = input(
+                "Are you ready to play? Type Y to play "
+                "or N to quit:\n"
+            )
             if READY_TO_PLAY.lower() == 'y':
                 break
             elif READY_TO_PLAY.lower() == 'n':
@@ -92,8 +107,10 @@ def main_menu():
             quit()
         else:
             print(f"{MENU_CHOICE} is not valid.")
-            print("Please enter P to Play, R for the Game Rules "
-                  "or Q to Quit:\n")
+            print(
+                "Please enter P to Play, R for the Game Rules "
+                "or Q to Quit:\n"
+            )
 
 
 # Choose difficulty
