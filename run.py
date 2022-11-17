@@ -19,6 +19,7 @@ from hard import *
 from hangman import *
 
 global NAME
+global MENU_CHOICE
 global DIFF_LEVEL
 global GAME_OVER
 GAME_OVER = False
@@ -35,16 +36,40 @@ def clear():
 def get_username():
     while True:
         global NAME
-        NAME = input('Welcome to Hangman! Please enter your name:\n')
+        NAME = input("Please enter your name:\n")
         clear()
         if NAME.isalpha():
             print(f"Hi {NAME}!")
-            print(
-                "The aim of Hangman is to guess the secret "
-                "word chosen by the computer.")
             break
         else:
             print(f"{NAME} is not valid. Please try again.")
+
+
+def main_menu():
+    """
+    Function for user to choose to play,
+    read the game rules, or quit
+    """
+    print(
+        "Welcome to Hangman! The aim of the game is to guess the secret "
+        "word chosen by the computer.")
+    while True:
+        global MENU_CHOICE
+        MENU_CHOICE = input("Type P to Play, R for the Game Rules "
+                            "or Q to Quit:\n")
+        clear()
+        if MENU_CHOICE.lower() == 'p':
+            print("Let's play")
+            break
+        elif MENU_CHOICE.lower() == 'r':
+            print("The rules of Hangman are")
+        elif MENU_CHOICE.lower() == 'q':
+            print("See you later!")
+            quit()
+        else:
+            print(f"{MENU_CHOICE} is not valid.")
+            print("Please enter P to Play, R for the Game Rules "
+                  "or Q to Quit:\n")
 
 
 # Choose difficulty
@@ -171,6 +196,7 @@ class Hangman():
                     clear()
                     # Check if user would like to play again
                     user_prompt = self.replay()
+                    clear()
                     if user_prompt.lower() == 'n':
                         print(f'Thanks for playing {NAME}!')
                         quit()
@@ -190,6 +216,7 @@ class Hangman():
                 clear()
                 while True:
                     user_prompt = self.replay()
+                    clear()
                     if user_prompt.lower() == 'n':
                         print(f'Thanks for playing {NAME}!')
                         GAME_OVER = True
@@ -203,6 +230,7 @@ class Hangman():
 
 if __name__ == '__main__':
     get_username()
+    main_menu()
     while GAME_OVER is False:
         DIFF_LEVEL = choose_diff()
         if DIFF_LEVEL == 'easy':
