@@ -104,7 +104,6 @@ def choose_diff():
     prompt = "Please choose a level (easy, medium, hard).\n>"
     choice = ""
     while choice not in ['easy', 'medium', 'hard']:
-        print("Invalid input!")
         choice = input(prompt)
     return current_diff(choice)
 
@@ -219,7 +218,7 @@ class Hangman():
                 if self.progress.count('_') == 0:
                     print('\nYay! You won!')
                     print(f'The word is {secret_word}')
-                    time.sleep(2)
+                    input('Press ENTER to proceed\n')
                     clear()
                     # Check if user would like to play again
                     user_prompt = self.replay()
@@ -240,7 +239,8 @@ class Hangman():
             if self.wrong_guess == len(HANGMAN):
                 self.print_game_status()
                 print('\nOh no! You lost!')
-                time.sleep(2)
+                print(f'The word is {secret_word}')
+                input("Press ENTER to proceed")
                 clear()
                 while True:
                     user_prompt = self.replay()
