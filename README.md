@@ -57,14 +57,24 @@ class Hangman():
 ```
 
 There are also a number of helper methods included in the class:
-- find_secret_word_letters()
-- invalid_input_digit()
-- invalid_input_len()
-- print_game_status()
-- update_progress()
-- get_user_input()
-- get_user_input()
-- play()
+- ```find_secret_word_letters()```
+- ```invalid_input_digit()```
+- ```invalid_input_len()```
+- ```print_game_status()```
+- ```update_progress()```
+- ```get_user_input()```
+- ```get_user_input()```
+- ```play()```
+
+---
+
+## Tools & Technologies
+
+- Python for 
+- OS for
+- Time for
+- Random for 
+- Colorama for 
 
 ---
 
