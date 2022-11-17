@@ -2,7 +2,7 @@
 Code for creating a hangman game in python
 """
 
-# Module to enable function to clear code between functions
+# Module to enable function to clear screen in game play
 import os
 
 # Modules for generating random integers
@@ -18,8 +18,10 @@ from hard import *
 # Import file to draw the hangman
 from hangman import *
 
+# Global variables
 global NAME
 global MENU_CHOICE
+global READY_TO_PLAY
 global DIFF_LEVEL
 global GAME_OVER
 GAME_OVER = False
@@ -32,8 +34,10 @@ def clear():
     os.system("cls" if os.name == "nt" else "clear")
 
 
-# Welcome
 def get_username():
+    """
+    Function to get and print username
+    """
     while True:
         global NAME
         NAME = input("Please enter your name:\n")
@@ -59,10 +63,30 @@ def main_menu():
                             "or Q to Quit:\n")
         clear()
         if MENU_CHOICE.lower() == 'p':
-            print("Let's play")
+            print("Let's play!")
+            time.sleep(2)
+            clear()
             break
         elif MENU_CHOICE.lower() == 'r':
-            print("The rules of Hangman are")
+            print("HANGMAN GAME RULES")
+            print("The aim of the game is to guess the secret "
+                  "word chosen by the computer.")
+            print("Every wrong guess will result in part of the hangman "
+                  "being drawn. If you guess incorrectly 7 times, "
+                  " the hangman will be fully formed and you lose.")
+            print("To win, guess the letter before you run out of attempts.")
+            print("Before you play you will have the option to choose "
+                  "the difficulty of the word to guess; easy, medium or hard")
+            global READY_TO_PLAY
+            READY_TO_PLAY = input("Are you ready to play? Type Y to play "
+                                  "or N to quit:\n")
+            if READY_TO_PLAY.lower() == 'y':
+                break
+            elif READY_TO_PLAY.lower() == 'n':
+                print("See you later!")
+                quit()
+            else:
+                print(f"{READY_TO_PLAY} is not valid.")
         elif MENU_CHOICE.lower() == 'q':
             print("See you later!")
             quit()
@@ -172,9 +196,11 @@ class Hangman():
             user_input = self.get_user_input()
 
             # Validate user input
+            # Check if input is a letter
             if self.invalid_input_digit(user_input):
                 print('Please guess a letter!')
                 continue
+            # Check input is only one letter
             if self.invalid_input_len(user_input):
                 print('Please guess only one letter at a time!')
                 continue
@@ -209,6 +235,7 @@ class Hangman():
             else:
                 self.wrong_guess += 1
 
+            # If user runs out of attempts they lose
             if self.wrong_guess == len(HANGMAN):
                 self.print_game_status()
                 print('\nOh no! You lost!')
