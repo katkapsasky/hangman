@@ -43,9 +43,28 @@ If a player guesses incorrectly, part of the hangman will be drawn. Players will
 
 ## Data Model
 
-I used the Hangman game class for my data model. This contains the functions for the game to be played by requesting a guess from the player, validating that the user hasn't guessed a digit instead of a letter, more than one letter, or a letter they have already guessed, tracking player progress and drawing the hangman.
+I used the Hangman game class for my data model. This contains the functions for the game to be played by requesting a guess from the player, validating that the user hasn't guessed a digit instead of a letter, more than one letter, or a letter they have already guessed, tracking player progress and drawing the hangman. There is also a function to offer players the option to replay once the game is over.
 
-The class also has a function to offer players the option to replay once the game is over.
+```python
+class Hangman():
+    """
+    Game class with methods
+    """
+    def __init__(self, secret_word):
+        self.wrong_guess = 0
+        self.secret_word = secret_word
+        self.progress = list('_' * len(self.secret_word))
+```
+
+There are also a number of helper methods included in the class:
+- find_secret_word_letters()
+- invalid_input_digit()
+- invalid_input_len()
+- print_game_status()
+- update_progress()
+- get_user_input()
+- get_user_input()
+- play()
 
 ---
 
