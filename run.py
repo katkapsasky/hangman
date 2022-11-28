@@ -55,7 +55,7 @@ def main_menu():
     read the game rules, or quit
     """
     print(
-        "Welcome to Hangman! "
+        "Welcome to Hangman! \n"
         "The aim of the game is to guess the secret word "
         "chosen by the computer."
     )
