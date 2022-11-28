@@ -1,6 +1,13 @@
 """
 Code for creating a hangman game in python
 """
+# Import file to draw the hangman
+from hangman import *
+
+# Import files with words to be guessed
+from easy import *
+from medium import *
+from hard import *
 
 # Module to enable function to clear screen in game play
 import os
@@ -10,13 +17,12 @@ import os
 import random
 import time
 
-# Import files with words to be guessed
-from easy import *
-from medium import *
-from hard import *
-
-# Import file to draw the hangman
-from hangman import *
+# Module to add color to the console
+import colorama
+from colorama import Fore, Back, Style
+# Initiate colorama to work on windows
+# and reset text color after new line
+colorama.init(autoreset=True)
 
 # Global variables
 global NAME
@@ -43,7 +49,7 @@ def get_username():
         NAME = input("Please enter your name:\n")
         clear()
         if NAME.isalpha():
-            print(f"Hi {NAME}!")
+            print(f"{Fore.CYAN}Hi {NAME}!")
             break
         else:
             print(f"{NAME} is not valid. Please try again.")
@@ -55,39 +61,40 @@ def main_menu():
     read the game rules, or quit
     """
     print(
-        "Welcome to Hangman! \n"
+        f"{Fore.BLUE}Welcome to Hangman! \n"
         "The aim of the game is to guess the secret word "
         "chosen by the computer."
     )
     while True:
         global MENU_CHOICE
         MENU_CHOICE = input(
-            "Type P to Play, R for the Game Rules "
+            f"{Fore.MAGENTA}Type P to Play, R for the Game Rules "
             "or Q to Quit:\n"
         )
         clear()
-        if MENU_CHOICE.lower() == 'p':
-            print("Let's play!")
+        if MENU_CHOICE.lower() == "p":
+            print(f"{Fore.GREEN}Let's play!")
             time.sleep(2)
             clear()
             break
-        elif MENU_CHOICE.lower() == 'r':
-            print("HANGMAN GAME RULES")
+        elif MENU_CHOICE.lower() == "r":
+            print(f"{Back.MAGENTA}HANGMAN GAME RULES")
             print(
-                "The aim of the game is to guess the secret "
+                f"{Back.BLUE}The aim of the game is to guess the secret "
                 "word chosen by the computer.")
             print(
-                "Every wrong guess will result in part of the hangman "
-                "being drawn. \n"
+                f"{Back.BLUE}Every wrong guess will result in "
+                "part of the hangman being drawn. \n"
                 "If you guess incorrectly 7 times, "
                 " the hangman will be fully formed and you lose."
             )
             print(
-                "To win, guess the letter before you run out of attempts."
+                f"{Back.BLUE}To win, guess the letter "
+                "before you run out of attempts."
             )
             print(
-                "Before you play you will have the option to choose "
-                "the difficulty of the word to guess; \n"
+                f"{Back.BLUE}Before you play you will have the option "
+                "to choose the difficulty of the word to guess; \n"
                 "easy, medium or hard"
             )
             global READY_TO_PLAY
@@ -95,15 +102,16 @@ def main_menu():
                 "Are you ready to play? Type Y to play "
                 "or N to quit:\n"
             )
-            if READY_TO_PLAY.lower() == 'y':
+            clear()
+            if READY_TO_PLAY.lower() == "y":
                 break
-            elif READY_TO_PLAY.lower() == 'n':
-                print("See you later!")
+            elif READY_TO_PLAY.lower() == "n":
+                print(f"{Fore.CYAN}See you later {NAME}!")
                 quit()
             else:
                 print(f"{READY_TO_PLAY} is not valid.")
-        elif MENU_CHOICE.lower() == 'q':
-            print("See you later!")
+        elif MENU_CHOICE.lower() == "q":
+            print(f"{Fore.CYAN}See you later {NAME}!")
             quit()
         else:
             print(f"{MENU_CHOICE} is not valid.")
@@ -120,7 +128,7 @@ def choose_diff():
     """
     prompt = "Please choose a level (easy, medium, hard).\n>"
     choice = ""
-    while choice not in ['easy', 'medium', 'hard']:
+    while choice not in ["easy", "medium", "hard"]:
         choice = input(prompt)
     return current_diff(choice)
 
@@ -133,9 +141,8 @@ def current_diff(level):
     Function to inform user of difficulty
     level chosen
     """
-    message = "You picked " + level
-    print(message)
     DIFF_LEVEL = level
+    print(f"You picked {level}!")
     time.sleep(1)
     print("Let's play!")
     return DIFF_LEVEL
@@ -148,7 +155,7 @@ class Hangman():
     def __init__(self, secret_word):
         self.wrong_guess = 0
         self.secret_word = secret_word
-        self.progress = list('_' * len(self.secret_word))
+        self.progress = list("_" * len(self.secret_word))
 
     def find_secret_word_letters(self, letter):
         """
@@ -176,10 +183,10 @@ class Hangman():
         Method to print the secret word with the letters guessed
         and remaining blank spaces
         """
-        print('\n')
-        print('\n'.join(HANGMAN[:self.wrong_guess]))
-        print('\n')
-        print(' '.join(self.progress))
+        print("\n")
+        print("\n".join(HANGMAN[:self.wrong_guess]))
+        print("\n")
+        print(" ".join(self.progress))
 
     def update_progress(self, letter, indexes):
         """
@@ -192,14 +199,14 @@ class Hangman():
         """
         Method to get the user's guess
         """
-        user_input = input('\nEnter your guess here:\n')
+        user_input = input(f"\n{Fore.BLUE}Enter your guess here:\n")
         return user_input
 
     def replay(self):
         """
         Method to ask user if they want to replay
         """
-        user_replay = input('\nWould you like to play again? Type Y or N:\n')
+        user_replay = input("\nWould you like to play again? Type Y or N:\n")
         return user_replay
 
     def play(self):
@@ -215,15 +222,15 @@ class Hangman():
             # Validate user input
             # Check if input is a letter
             if self.invalid_input_digit(user_input):
-                print('Please guess a letter!')
+                print("Please guess a letter!")
                 continue
             # Check input is only one letter
             if self.invalid_input_len(user_input):
-                print('Please guess only one letter at a time!')
+                print("Please guess only one letter at a time!")
                 continue
             # Check if the letter has already been guessed
             if user_input in self.progress:
-                print('You have already guessed that letter!')
+                print("You have already guessed that letter!")
                 continue
             clear()
             # Update word with correct guess
@@ -233,18 +240,18 @@ class Hangman():
                 # If the user guesses all letters
                 # before running out of attempts they win
                 if self.progress.count('_') == 0:
-                    print('\nYay! You won!')
-                    print(f'The word is {secret_word}')
-                    input('Press ENTER to proceed\n')
+                    print(f"\n{Back.GREEN}Yay! You won!")
+                    print(f"The word is {Fore.GREEN}{secret_word}")
+                    input("Press ENTER to proceed\n")
                     clear()
                     # Check if user would like to play again
                     user_prompt = self.replay()
                     clear()
-                    if user_prompt.lower() == 'n':
-                        print(f'Thanks for playing {NAME}!')
+                    if user_prompt.lower() == "n":
+                        print(f"{Fore.CYAN}Thanks for playing {NAME}!")
                         quit()
                         break
-                    elif user_prompt.lower() == 'y':
+                    elif user_prompt.lower() == "y":
                         break
                     else:
                         print(f"{user_prompt} is not valid.")
@@ -255,32 +262,32 @@ class Hangman():
             # If user runs out of attempts they lose
             if self.wrong_guess == len(HANGMAN):
                 self.print_game_status()
-                print('\nOh no! You lost!')
-                print(f'The word is {secret_word}')
+                print(f"\n{Back.RED}Oh no! You lost!")
+                print(f"The word is {Fore.RED}{secret_word}")
                 input("Press ENTER to proceed")
                 clear()
                 while True:
                     user_prompt = self.replay()
                     clear()
-                    if user_prompt.lower() == 'n':
-                        print(f'Thanks for playing {NAME}!')
+                    if user_prompt.lower() == "n":
+                        print(f"{Fore.CYAN}Thanks for playing {NAME}!")
                         GAME_OVER = True
                         quit()
-                    elif user_prompt.lower() == 'y':
+                    elif user_prompt.lower() == "y":
                         break
                     else:
                         print(f"{user_prompt} is not valid.")
                         print("Please enter Y to play again or N to quit")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     get_username()
     main_menu()
     while GAME_OVER is False:
         DIFF_LEVEL = choose_diff()
-        if DIFF_LEVEL == 'easy':
+        if DIFF_LEVEL == "easy":
             secret_word = random.choice(EASY_WORDS)
-        elif DIFF_LEVEL == 'medium':
+        elif DIFF_LEVEL == "medium":
             secret_word = random.choice(MEDIUM_WORDS)
         else:
             secret_word = random.choice(HARD_WORDS)
