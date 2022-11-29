@@ -27,19 +27,42 @@ If a player guesses incorrectly, part of the hangman will be drawn. Players will
 
 ### Existing Features
 
-- Welcome and enter name
+- Enter name, welcome and game options
+
+![Screenshot of welcome and game options](documentation/features/welcome.png)
+
+- Option to read full game rules
+
+![Screenshot of game rules](documentation/features/game_rules.png)
 
 - Choose difficulty
+
+![Screenshot of difficulty options](documentation/features/choose_level.png)
 
 - Random word generation
   - Word is hidden from player and dashes are shown for each letter in the word
 
+![Screenshot of gameplay, random word generation and hangman](documentation/features/hangman.png)
+
 - Input validation and error checking
   - You cannot guess a number or special character
+
+  ![Screenshot of input validation (number or special character)](documentation/features/input_validation_digit.png)
+
   - You cannot guess multiple letters at a time
+
+  ![Screenshot of input validation (more than one letter guessed at once)](documentation/features/input_validation_multiple_char.png)
+
   - You cannot guess the same letter twice 
+  
+  ![Screenshot of input validation (letter already guessed)](documentation/features/input_validation_letter_duplicate.png)
 
 ### Future Features
+
+- Add a timer so players have a specific amount of time to guess the word
+ - Amount of time would decrease for higher difficulty levels
+
+- Add a high score feature to record players scores
 
 ---
 
