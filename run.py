@@ -114,7 +114,7 @@ def main_menu():
             print(f"{Fore.CYAN}See you later {NAME}!")
             quit()
         else:
-            print(f"{Back.RED}{MENU_CHOICE} is not valid.")
+            print(f"{Back.RED}{Fore.WHITE}{MENU_CHOICE} is not valid.")
 
 
 # Choose difficulty
@@ -263,9 +263,12 @@ class Hangman():
                         break
                     elif user_prompt.lower() == "y":
                         break
+                        GAME_OVER = False
                     else:
                         print(f"{Back.RED}{user_prompt} is not valid.")
-                        print("Please enter Y to play again or N to quit")
+                        self.replay()
+                        break
+          
             else:
                 self.wrong_guess += 1
 
@@ -287,7 +290,6 @@ class Hangman():
                         break
                     else:
                         print(f"{Back.RED}{user_prompt} is not valid.")
-                        print("Please enter Y to play again or N to quit")
 
 
 if __name__ == "__main__":
