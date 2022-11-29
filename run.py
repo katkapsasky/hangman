@@ -52,7 +52,7 @@ def get_username():
             print(f"{Fore.CYAN}Hi {NAME}!")
             break
         else:
-            print(f"{NAME} is not valid. Please try again.")
+            print(f"{Back.RED}{NAME} is not valid. Please try again.")
 
 
 def main_menu():
@@ -109,16 +109,12 @@ def main_menu():
                 print(f"{Fore.CYAN}See you later {NAME}!")
                 quit()
             else:
-                print(f"{READY_TO_PLAY} is not valid.")
+                print(f"{Back.RED}{READY_TO_PLAY} is not valid.")
         elif MENU_CHOICE.lower() == "q":
             print(f"{Fore.CYAN}See you later {NAME}!")
             quit()
         else:
-            print(f"{MENU_CHOICE} is not valid.")
-            print(
-                "Please enter P to Play, R for the Game Rules "
-                "or Q to Quit:\n"
-            )
+            print(f"{Back.RED}{MENU_CHOICE} is not valid.")
 
 
 # Choose difficulty
@@ -130,7 +126,8 @@ def choose_diff():
     choice = ""
     while choice not in ["easy", "medium", "hard"]:
         if choice != "":
-            print(f"{choice} is not valid!")
+            clear()
+            print(f"{Back.RED}{choice} is not valid!")
         choice = input(prompt)
 
     return current_diff(choice)
@@ -159,6 +156,7 @@ class Hangman():
         self.wrong_guess = 0
         self.secret_word = secret_word
         self.progress = list("_" * len(self.secret_word))
+        self.used_words = set()
 
     def find_secret_word_letters(self, letter):
         """
@@ -225,16 +223,23 @@ class Hangman():
             # Validate user input
             # Check if input is a letter
             if self.invalid_input_digit(user_input):
-                print("Please guess a letter!")
+                print(f"{Back.RED}Please guess a letter!")
                 continue
             # Check input is only one letter
             if self.invalid_input_len(user_input):
-                print("Please guess only one letter at a time!")
+                print(f"{Back.RED}Please guess only one letter at a time!")
                 continue
-            # Check if the letter has already been guessed
+            # Check if a correct letter has already been guessed
             if user_input in self.progress:
-                print("You have already guessed that letter!")
+                print(f"{Back.RED}You have already guessed that letter!")
                 continue
+            # Check if an incorrect letter has already been guessed
+            if user_input in self.used_words:
+                print(f"{Back.RED}You have already guessed that letter!")
+                continue
+            else:
+                # Remember letters guessed by user
+                self.used_words.add(user_input)
             clear()
             # Update word with correct guess
             if user_input in self.secret_word:
@@ -243,7 +248,9 @@ class Hangman():
                 # If the user guesses all letters
                 # before running out of attempts they win
                 if self.progress.count('_') == 0:
-                    print(f"\n{Back.GREEN}Yay! You won!")
+                    print(
+                        f"\n{Fore.GREEN}Yay! You won!"
+                    )
                     print(f"The word is {Fore.GREEN}{secret_word}")
                     input("Press ENTER to proceed\n")
                     clear()
@@ -257,7 +264,7 @@ class Hangman():
                     elif user_prompt.lower() == "y":
                         break
                     else:
-                        print(f"{user_prompt} is not valid.")
+                        print(f"{Back.RED}{user_prompt} is not valid.")
                         print("Please enter Y to play again or N to quit")
             else:
                 self.wrong_guess += 1
@@ -265,7 +272,7 @@ class Hangman():
             # If user runs out of attempts they lose
             if self.wrong_guess == len(HANGMAN):
                 self.print_game_status()
-                print(f"\n{Back.RED}Oh no! You lost!")
+                print(f"\n{Fore.RED}Oh no! You lost!")
                 print(f"The word is {Fore.RED}{secret_word}")
                 input("Press ENTER to proceed")
                 clear()
@@ -279,7 +286,7 @@ class Hangman():
                     elif user_prompt.lower() == "y":
                         break
                     else:
-                        print(f"{user_prompt} is not valid.")
+                        print(f"{Back.RED}{user_prompt} is not valid.")
                         print("Please enter Y to play again or N to quit")
 
 
