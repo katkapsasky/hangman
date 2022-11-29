@@ -23,6 +23,14 @@ If a player guesses incorrectly, part of the hangman will be drawn. Players will
 
 ---
 
+## Why Hangman?
+
+I chose to create a Hangman game for my Python project because it's a fun and accessible way to learn how to build something in Python using a Class model. I wanted to focus on a game I have played many times before and that is known and loved by people worldwide. 
+
+The need for input validation at multiple instances throughout the game has also allowed me to practice and become more comfortable with if/else statements as well as for and while loops. 
+
+---
+
 ## Features
 
 ### Existing Features
@@ -55,7 +63,7 @@ If a player guesses incorrectly, part of the hangman will be drawn. Players will
 
   - You cannot guess the same letter twice 
   
-  ![Screenshot of input validation (letter already guessed)](documentation/features/input_validation_letter_duplicate.png)
+  ![Screenshot of input validation (letter already guessed)](documentation/testing/input_validation_duplicate_correct_guess.png)
 
 - Secret word is revealed once you win or lose
 
