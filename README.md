@@ -166,4 +166,24 @@ The frontend terminal should now be connected and deployed to Heroku.
 
 ## Credits
 
+### Code
+
+[Milton Ln: Hangman Game](https://gist.github.com/MiltonLn/72f4342ee938bf45881939e43b3230dc) for creating the basis of the Hangman game class and its functions.
+
+[Stack Exchange Code Review](https://codereview.stackexchange.com/questions/163912/hangman-in-python-3) for adding the difficulty level option.
+
+[Tech with Tim: How to Print Colored Text in Python](https://www.youtube.com/watch?v=u51Zjlnui4Y) for adding color to the text in the console.
+
+### Content
+
+[Wikipedia: Hangman](https://en.wikipedia.org/wiki/Hangman_(game)) and [Psy Cat Games: Hangman](https://psycatgames.com/magazine/party-games/hangman) for how to play and game rules in the game and in the README.
+
+[Hangman Words](https://www.hangmanwords.com/words) and [Pinterest](https://www.pinterest.com/pin/102175485290182585/?mt=login) for inspiration on words to guess. 
+
+[Code Institute: Project 3 Sample Read Me](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+PE_PAGPPF+2021_Q2/courseware/b3378fc1159e43e3b70916fdefdfae51/605f34e006594dc4ae19f5e60ec75e2e/) for the README and TESTING files layout.
+
+### Acknowledgements
+
+My mentor, Tim Nelson, and Tutor Support for their invaluable feedback, insight and support in fixing many bugs alongs the way.
+
 ---
