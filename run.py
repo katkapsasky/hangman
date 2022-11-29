@@ -78,7 +78,7 @@ def main_menu():
             clear()
             break
         elif MENU_CHOICE.lower() == "r":
-            print(f"{Back.MAGENTA}HANGMAN GAME RULES")
+            print(f"{Fore.BLUE}HANGMAN GAME RULES")
             print(
                 f"{Back.BLUE}The aim of the game is to guess the secret "
                 "word chosen by the computer.")
