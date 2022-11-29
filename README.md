@@ -57,6 +57,15 @@ If a player guesses incorrectly, part of the hangman will be drawn. Players will
   
   ![Screenshot of input validation (letter already guessed)](documentation/features/input_validation_letter_duplicate.png)
 
+- Secret word is revealed once you win or lose
+
+![Screenshot of winning the game](documentation/features/yay_you_won.png)
+![Screenshot of losing the game](documentation/features/ohno_you_lost.png)
+
+- Option to replay the game
+
+![Screenshot of replay option](documentation/features/play_again.png)
+
 ### Future Features
 
 - Add a timer so players have a specific amount of time to guess the word in
