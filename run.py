@@ -129,7 +129,10 @@ def choose_diff():
     prompt = "Please choose a level (easy, medium, hard).\n>"
     choice = ""
     while choice not in ["easy", "medium", "hard"]:
+        if choice != "":
+            print(f"{choice} is not valid!")
         choice = input(prompt)
+
     return current_diff(choice)
 
 
