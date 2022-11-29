@@ -73,6 +73,8 @@ If a player guesses incorrectly, part of the hangman will be drawn. Players will
 
 - Add a high score feature to record players scores
 
+- Add a section showing the user the letters they have already guessed
+
 ---
 
 ## Data Model
@@ -182,6 +184,8 @@ The frontend terminal should now be connected and deployed to Heroku.
 [Stack Exchange Code Review](https://codereview.stackexchange.com/questions/163912/hangman-in-python-3) for adding the difficulty level option.
 
 [Tech with Tim: How to Print Colored Text in Python](https://www.youtube.com/watch?v=u51Zjlnui4Y) for adding color to the text in the console.
+
+[Stack Overflow: Python Guessing Game - making sure users don't input same letter twice](https://stackoverflow.com/questions/17606844/python-guessing-game-making-sure-user-dont-input-same-letter-twice) for fixing the input validation bug when users guess an incorrect letter more than once.
 
 ### Content
 
