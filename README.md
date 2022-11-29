@@ -59,8 +59,8 @@ If a player guesses incorrectly, part of the hangman will be drawn. Players will
 
 ### Future Features
 
-- Add a timer so players have a specific amount of time to guess the word
- - Amount of time would decrease for higher difficulty levels
+- Add a timer so players have a specific amount of time to guess the word in
+  - Amount of time would decrease for higher difficulty levels
 
 - Add a high score feature to record players scores
 
