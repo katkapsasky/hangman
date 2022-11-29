@@ -95,11 +95,11 @@ There are also a number of helper methods included in the class:
 
 ## Tools & Technologies
 
-- Python for 
-- OS for
-- Time for
-- Random for 
-- Colorama for 
+- Python for creating and running the Hangman game
+- OS for clearing the console after certain steps in the game
+- Time for adding pauses between steps in the game
+- Random for generating a random word from the easy.py, medium.py and hard.py files
+- Colorama for adding color to text in the console
 
 ---
 
