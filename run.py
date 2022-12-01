@@ -268,7 +268,7 @@ class Hangman():
                         print(f"{Back.RED}{user_prompt} is not valid.")
                         self.replay()
                         break
-          
+
             else:
                 self.wrong_guess += 1
 
