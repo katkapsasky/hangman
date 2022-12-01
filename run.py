@@ -208,6 +208,7 @@ class Hangman():
         Method to ask user if they want to replay
         """
         user_replay = input("\nWould you like to play again? Type Y or N:\n")
+        clear()
         return user_replay
 
     def play(self):
@@ -255,18 +256,14 @@ class Hangman():
                     input("Press ENTER to proceed\n")
                     clear()
                     # Check if user would like to play again
-                    user_prompt = self.replay()
-                    clear()
-                    if user_prompt.lower() == "n":
+                    user_replay = self.replay()
+                    while user_replay not in ("y", "n"):
+                        print(f"{Back.RED}{user_replay} is not valid.")
+                        user_replay = self.replay()
+                    if user_replay.lower() == "n":
                         print(f"{Fore.CYAN}Thanks for playing {NAME}!")
                         quit()
-                        break
-                    elif user_prompt.lower() == "y":
-                        break
-                        GAME_OVER = False
-                    else:
-                        print(f"{Back.RED}{user_prompt} is not valid.")
-                        self.replay()
+                    elif user_replay.lower() == "y":
                         break
 
             else:
