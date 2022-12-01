@@ -205,6 +205,6 @@ The frontend terminal should now be connected and deployed to Heroku.
 
 ### Acknowledgements
 
-My mentor, Tim Nelson, and Tutor Support for their invaluable feedback, insight and support in fixing many bugs alongs the way.
+My mentor, Tim Nelson, for his invaluable feedback and insight and the Code Institute Tutor Support team for helping me in fixing many bugs along the way.
 
 ---
