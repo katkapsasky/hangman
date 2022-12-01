@@ -30,11 +30,20 @@ I have tried to ensure that any invalid input while using the app and within gam
 
 I have passed all my code from the below files through a PEP8 linter and confirmed there are no problems.
 
-- run.py
-- easy.py
-- medium.py
-- hard.py
-- hangman.py
+- [run.py file](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/katkapsasky/hangman/main/run.py)
+![Screenshot from Python Linter for run.py file](documentation/testing/pep8_run.png)
+
+- [easy.py file](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/katkapsasky/hangman/main/easy.py)
+![Screenshot from Python Linter for easy.py file](documentation/testing/pep8_easy.png)
+
+- [medium.py file]()
+![Screenshot from Python Linter for medium.py file](documentation/testing/)
+
+- [hard.py file](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/katkapsasky/hangman/main/hard.py)
+![Screenshot from Python Linter for hard.py file](documentation/testing/pep8_hard.png)
+
+- [hangman.py file](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/katkapsasky/hangman/main/hangman.py)
+![Screenshot from Python Linter for hard.py file](documentation/testing/pep8_hangman.png)
 
 ---
 
