@@ -43,6 +43,12 @@ As a user, I would like:
 
 ---
 
+## Game Logic
+
+I created a simple flow chart at the beginning of my project using Lucid, to outline the logic of the game and the steps the user would be taken through. 
+
+![Screenshot of flow chart from Lucid](documentation/)
+
 ## Features
 
 ### Existing Features
@@ -131,6 +137,7 @@ There are also a number of helper methods included in the class:
 - [Github](https://github.com/) to securely store my code online
 - [Git](https://git-scm.com/) for version control
 - [Heroku](https://dashboard.heroku.com/) for deploying the app
+- [Lucid](https://www.lucidchart.com/pages/) for creating a flowchart to work through the game's logic
 
 ### Language and Modules 
 - [Python](https://www.python.org/) for creating and running the Hangman game
