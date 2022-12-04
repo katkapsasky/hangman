@@ -43,7 +43,7 @@ I have passed all my code from the below files through a PEP8 linter and confirm
 ![Screenshot from Python Linter for hard.py file](documentation/testing/pep8_hard.png)
 
 - [hangman.py file](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/katkapsasky/hangman/main/hangman.py)
-![Screenshot from Python Linter for hard.py file](documentation/testing/pep8_hangman.png)
+![Screenshot from Python Linter for hangman.py file](documentation/testing/pep8_hangman.png)
 
 ---
 
