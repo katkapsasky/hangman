@@ -31,6 +31,18 @@ The need for input validation at multiple instances throughout the game has also
 
 ---
 
+## User Stories
+
+As a user, I would like:
+
+- to enter a username
+- to read the full rules of the game
+- to choose a difficulty level
+- to have the option to replay
+- to be notified when my input is invalid
+
+---
+
 ## Features
 
 ### Existing Features
@@ -114,6 +126,13 @@ There are also a number of helper methods included in the class:
 
 ## Tools & Technologies
 
+### Platforms
+- [Gitpod](https://gitpod.io/workspaces) as a cloud-based development IDE
+- [Github](https://github.com/) to securely store my code online
+- [Git](https://git-scm.com/) for version control
+- [Heroku](https://dashboard.heroku.com/) for deploying the app
+
+### Language and Modules 
 - [Python](https://www.python.org/) for creating and running the Hangman game
 - [OS](https://docs.python.org/3/library/os.html) for clearing the console after certain steps in the game
 - [Time](https://docs.python.org/3/library/time.html) for adding pauses between steps in the game
