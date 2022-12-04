@@ -94,7 +94,14 @@ The ```replay(self)``` function was not working correctly if a user won a game a
 For the code to replay after winning a game to function correctly, I had to define the varibale ```user_replay``` and reformat my while statement so that as long as a user's input is invalid, no matter how many times it is invalid, and until they input "y" or "n", they receive an error message.
 ![Fixed code to replay after winning a game](documentation/testing/replay_after_winning.png)
 
-#### Using capital letters in inputs
+#### Using uppercase letters in inputs
+
+I noticed that I hadn't used the ```lower()``` function for the difficulty level inputs or when guessing letters in the game. This meant that if a user input "EASY" as a difficulty level instead of "easy" they would receive an error saying the input was invalid. 
+
+Similarly, when guessing letters in a secret word, if a guess was input as a capital letter, even if that letter was correct it would not show up in the game. To fix this, I add the ```lower()``` function so that the app will recognise upper and lowercase user inputs.
+
+![Fix so user can choose difficulty level in uppercase](documentation/testing/capital_letters_fix2.png)
+![Fix so user can guess letters in uppercase](documentation/testing/capital_letters_fix1.png)
 
 ### Unfixed Bugs
 
