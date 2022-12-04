@@ -47,7 +47,7 @@ As a user, I would like:
 
 I created a simple flow chart at the beginning of my project using Lucid, to outline the logic of the game and the steps the user would be taken through. 
 
-![Screenshot of flow chart from Lucid](documentation/)
+![Screenshot of flow chart from Lucid](documentation/flowchart.png)
 
 ## Features
 
