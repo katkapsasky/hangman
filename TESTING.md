@@ -36,8 +36,8 @@ I have passed all my code from the below files through a PEP8 linter and confirm
 - [easy.py file](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/katkapsasky/hangman/main/easy.py)
 ![Screenshot from Python Linter for easy.py file](documentation/testing/pep8_easy.png)
 
-- [medium.py file]()
-![Screenshot from Python Linter for medium.py file](documentation/testing/)
+- [medium.py file](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/katkapsasky/hangman/main/medium.py)
+![Screenshot from Python Linter for medium.py file](documentation/testing/pep8_medium.png)
 
 - [hard.py file](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/katkapsasky/hangman/main/hard.py)
 ![Screenshot from Python Linter for hard.py file](documentation/testing/pep8_hard.png)
