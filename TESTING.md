@@ -8,7 +8,7 @@ I have manually tested this project in my local terminal on GitPod and in the Co
 
 ### Defensive Programming
 
-I have tried to ensure that any invalid input while using the app and within gameplay is not accepted and an error message is shown to the user when their input is invalid:
+In this project I have included code to ensure that any invalid or empty input while using the app and within gameplay is not accepted and an error message is shown to the user when their input is invalid:
 
   - Users cannot input numbers or special characters instead of letters throughout the game, whilst: 
     - Giving their name
@@ -51,6 +51,8 @@ I have passed all my code from the below files through a PEP8 linter and confirm
 
 ### Fixed Bugs
 
+#### Guessing a letter you have already guessed
+
 The input validation when a user guesses a letter they have already guessed was only working when they guessed a correct letter more than once - if the letter was incorrect the user could keep guessing and would run out of attempts. 
 
 To fix this, I created an empty set to store user guesses,
@@ -70,6 +72,8 @@ and then I added an if statement to check for guessed incorrect letters and an e
                 self.used_words.add(user_input) 
 ```
 
+#### Text formatting
+
 Another bug I found was in text formatting. Some of the text printed to the console, such as the game rules, was throwing errors as the lines were too long and the text on the console was breaking so a new line would cut a word in half, making it hard for users to read. 
 
 By formatting my text over multiple lines and adding in new lines I was able to make the text easier to read and fix the errors.
@@ -81,6 +85,16 @@ By formatting my text over multiple lines and adding in new lines I was able to 
                 " the hangman will be fully formed and you lose."
             )
 ```
+
+#### Replay function after winning
+
+The ```replay(self)``` function was not working correctly if a user won a game and after being asked to replay entered an invalid input. Instead of letting the user know their input was invalid and asking them to input "y" to replay or "n" to quit, again, as it should function, it would loop back to the word you just guessed and ask you to play again, even though the secret word would be visible. The code was written in the same way as for the replay option after losing a game, which does work correctly:
+![Code to replay after losing a game](documentation/testing/replay_after_losing.png)
+
+For the code to replay after winning a game to function correctly, I had to define the varibale ```user_replay``` and reformat my while statement so that as long as a user's input is invalid, no matter how many times it is invalid, and until they input "y" or "n", they receive an error message.
+![Fixed code to replay after winning a game](documentation/testing/replay_after_winning.png)
+
+#### Using capital letters in inputs
 
 ### Unfixed Bugs
 
