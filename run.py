@@ -127,7 +127,7 @@ def choose_diff():
     while choice not in ["easy", "medium", "hard"]:
         if choice != "":
             clear()
-            print(f"{Back.RED}{choice} is not valid!")
+            print(f"{Back.RED}{Fore.WHITE}{choice} is not valid!")
         choice = input(prompt)
 
     return current_diff(choice)
