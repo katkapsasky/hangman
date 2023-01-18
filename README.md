@@ -221,6 +221,8 @@ The frontend terminal should now be connected and deployed to Heroku.
 
 [Stack Overflow: Python Guessing Game - making sure users don't input same letter twice](https://stackoverflow.com/questions/17606844/python-guessing-game-making-sure-user-dont-input-same-letter-twice) for fixing the input validation bug when users guess an incorrect letter more than once.
 
+[Geeks for Geeks: Program to check if a string contains any special character](https://www.geeksforgeeks.org/python-program-check-string-contains-special-character/) for coding the input validation for special characters entered during gameplay.
+
 ### Content
 
 [Wikipedia: Hangman](https://en.wikipedia.org/wiki/Hangman_(game)) and [Psy Cat Games: Hangman](https://psycatgames.com/magazine/party-games/hangman) for how to play and game rules in the game and in the README.
