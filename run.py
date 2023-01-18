@@ -9,6 +9,10 @@ from easy import *
 from medium import *
 from hard import *
 
+# Import program to check if user input contains special characters
+# when playing the game
+import re
+
 # Module to enable function to clear screen in game play
 import os
 
@@ -177,6 +181,14 @@ class Hangman():
         """
         return input_.isdigit()
 
+    def invalid_input_special_char(self, input_):
+        """
+        Method to validate if the user input is correct
+        Checks if the user inputs a special character
+        """
+        regex = re.compile('[@_!#$%^&*()<>?/|}{~:]')
+        return (regex.search(input_) is not None)
+
     def invalid_input_len(self, input_):
         """
         Method to validate if the user input is correct
@@ -227,9 +239,19 @@ class Hangman():
             user_input = self.get_user_input()
 
             # Validate user input
-            # Check if input is a letter
+            # Check if input is a digit
             if self.invalid_input_digit(user_input):
-                print(f"{Back.RED}{Fore.WHITE}Please guess a letter!")
+                print(
+                    f"{Back.RED}{Fore.WHITE}You entered a number! "
+                    "Please only guess letters!"
+                )
+                continue
+            # Check if input is a special character
+            if self.invalid_input_special_char(user_input):
+                print(
+                    f"{Back.RED}{Fore.WHITE}You entered a special character! "
+                    "Please only guess letters!"
+                )
                 continue
             # Check input is only one letter
             if self.invalid_input_len(user_input):
