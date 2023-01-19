@@ -174,20 +174,27 @@ class Hangman():
         """
         return [i for i, char in enumerate(self.secret_word) if letter == char]
 
-    def invalid_input_digit(self, input_):
+    def invalid_input_not_alpha(self, input_):
         """
         Method to validate if the user input is correct
         Checks if the user inputs a number
         """
-        return input_.isdigit()
+        return input_.isalpha()
 
-    def invalid_input_special_char(self, input_):
-        """
-        Method to validate if the user input is correct
-        Checks if the user inputs a special character
-        """
-        regex = re.compile('[@_!#$%^&*()<>?/|}{~:]')
-        return (regex.search(input_) is not None)
+    # def invalid_input_digit(self, input_):
+    #     """
+    #     Method to validate if the user input is correct
+    #     Checks if the user inputs a number
+    #     """
+    #     return input_.isdigit()
+
+    # def invalid_input_special_char(self, input_):
+    #     """
+    #     Method to validate if the user input is correct
+    #     Checks if the user inputs a special character
+    #     """
+    #     regex = re.compile('[@_!#$%^&*()<>?/|}{~:]')
+    #     return (regex.search(input_) is not None)
 
     def invalid_input_len(self, input_):
         """
@@ -237,22 +244,21 @@ class Hangman():
         while self.wrong_guess < len(HANGMAN):
             self.print_game_status()
             user_input = self.get_user_input()
-
-            # Validate user input
             # Check if input is a digit
-            if self.invalid_input_digit(user_input):
-                print(
-                    f"{Back.RED}{Fore.WHITE}You entered a number! "
-                    "Please only guess letters!"
-                )
-                continue
-            # Check if input is a special character
-            if self.invalid_input_special_char(user_input):
-                print(
-                    f"{Back.RED}{Fore.WHITE}You entered a special character! "
-                    "Please only guess letters!"
-                )
-                continue
+            # if self.invalid_input_digit(user_input):
+            #     print(
+            #         f"{Back.RED}{Fore.WHITE}You entered a number! "
+            #         "Please only guess letters!"
+            #     )
+            #     continue
+            # # Check if input is a special character
+            # if self.invalid_input_special_char(user_input):
+            #     print(
+            #         f"{Back.RED}{Fore.WHITE}You entered a special "
+            #         "character!"
+            #         "Please only guess letters!"
+            #     )
+            #     continue
             # Check input is only one letter
             if self.invalid_input_len(user_input):
                 print(
@@ -274,9 +280,17 @@ class Hangman():
                     "guessed that letter!"
                 )
                 continue
-            else:
-                # Remember letters guessed by user
+            # If input is a letter remember it
+            # so user is notified if they guess it again
+            if self.invalid_input_not_alpha(user_input):
                 self.used_words.add(user_input)
+            else:
+                # If guess not alphabetical letter
+                print(
+                    f"{Back.RED}{Fore.WHITE}Invalid guess! "
+                    "Please only guess alphabetical letters!"
+                )
+                continue
             clear()
             # Update word with correct guess
             if user_input in self.secret_word:
