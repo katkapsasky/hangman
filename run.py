@@ -49,6 +49,7 @@ def get_username():
     Function to get and print username
     """
     while True:
+        clear()
         global NAME
         NAME = input("Please enter your name:\n")
         clear()
@@ -94,7 +95,7 @@ def main_menu():
                 f"{Back.BLUE}{Fore.WHITE}Every wrong guess will result in "
                 "part of the hangman being drawn. \n"
                 "If you guess incorrectly 7 times, "
-                " the hangman will be fully formed and you lose."
+                "the hangman will be fully formed and you lose."
             )
             print(
                 f"{Back.BLUE}{Fore.WHITE}To win, guess the letter "
@@ -261,31 +262,34 @@ class Hangman():
             #     continue
             # Check input is only one letter
             if self.invalid_input_len(user_input):
+                clear()
                 print(
                     f"{Back.RED}{Fore.WHITE}Please guess only "
                     "one letter at a time!"
                 )
                 continue
-            # Check if a correct letter has already been guessed
-            if user_input in self.progress:
+            # Check if a letter has already been guessed
+            if user_input in self.progress or user_input in self.used_words:
+                clear()
                 print(
                     f"{Back.RED}{Fore.WHITE}You have already "
                     "guessed that letter!"
                 )
                 continue
-            # Check if an incorrect letter has already been guessed
-            if user_input in self.used_words:
-                print(
-                    f"{Back.RED}{Fore.WHITE}You have already "
-                    "guessed that letter!"
-                )
-                continue
+            # # Check if an incorrect letter has already been guessed
+            # if user_input in self.used_words:
+            #     print(
+            #         f"{Back.RED}{Fore.WHITE}You have already "
+            #         "guessed that letter!"
+            #     )
+            #     continue
             # If input is a letter remember it
             # so user is notified if they guess it again
             if self.invalid_input_not_alpha(user_input):
                 self.used_words.add(user_input)
             else:
                 # If guess not alphabetical letter
+                clear()
                 print(
                     f"{Back.RED}{Fore.WHITE}Invalid guess! "
                     "Please only guess alphabetical letters!"
