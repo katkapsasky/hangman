@@ -230,7 +230,6 @@ class Hangman():
             user_input = self.get_user_input()
             # Check input is only one letter
             if self.invalid_input_len(user_input):
-                clear()
                 print(
                     f"{Back.RED}{Fore.WHITE}Please guess only "
                     "one letter at a time!"
@@ -238,7 +237,6 @@ class Hangman():
                 continue
             # Check if a letter has already been guessed
             if user_input in self.progress or user_input in self.used_words:
-                clear()
                 print(
                     f"{Back.RED}{Fore.WHITE}You have already "
                     "guessed that letter!"
