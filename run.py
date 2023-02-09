@@ -99,7 +99,7 @@ def main_menu():
             )
             print(
                 f"{Back.BLUE}{Fore.WHITE}Before you play "
-                "you will have the option to choose"
+                "you will have the option to choose "
                 "the difficulty of the word to guess; \n"
                 "easy, medium or hard"
             )
@@ -180,7 +180,6 @@ class Hangman():
         """
         return input_.isalpha()
 
-
     def invalid_input_len(self, input_):
         """
         Method to validate if the user input is correct
@@ -251,7 +250,6 @@ class Hangman():
                 self.used_words.add(user_input)
             else:
                 # If guess not alphabetical letter
-                clear()
                 print(
                     f"{Back.RED}{Fore.WHITE}Invalid guess! "
                     "Please only guess alphabetical letters!"

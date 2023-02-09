@@ -71,9 +71,17 @@ I created a simple flow chart at the beginning of my project using Lucid, to out
 ![Screenshot of gameplay, random word generation and hangman](documentation/features/hangman.png)
 
 - Input validation and error checking
-  - You cannot guess a number or special character
+  - You cannot guess a number
 
-  ![Screenshot of input validation (number or special character)](documentation/features/input_validation_digit.png)
+  ![Screenshot of input validation (number)](documentation/features/input_validation_digit.png)
+
+  - You cannot guess a special character
+
+  ![Screenshot of input validation (number)](documentation/features/input_validation_special_char.png)
+
+  - You cannot guess an empty input / just hit enter
+
+  ![Screenshot of input validation (empty input)](documentation/features/input_validation_empty_input.png)
 
   - You cannot guess multiple letters at a time
 
@@ -120,7 +128,7 @@ class Hangman():
 
 There are also a number of helper methods included in the class:
 - ```find_secret_word_letters()```
-- ```invalid_input_digit()```
+- ```invalid_input_not_alpha()```
 - ```invalid_input_len()```
 - ```print_game_status()```
 - ```update_progress()```

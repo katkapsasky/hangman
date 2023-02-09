@@ -10,13 +10,15 @@ I have manually tested this project in my local terminal on GitPod and in the Co
 
 In this project I have included code to ensure that any invalid or empty input while using the app and within gameplay is not accepted and an error message is shown to the user when their input is invalid:
 
-  - Users cannot input numbers or special characters instead of letters throughout the game, whilst: 
+  - The application will not accept numbers, special characters or empty inputs instead of letters from the user throughout the game, whilst: 
     - Giving their name
     ![Name input validation](documentation/testing/name_validation.png)
     - Navigating the game menu options
     ![Game menu options input validation](documentation/testing/game_options_validation.png)
-    - Playing the game - users cannot input numbers or special characters, guess more than one letter at once or guess a letter they have already guessed)
+    - Playing the game - users cannot guess non-alphabetical characters, empty inputs, more than one letter at once or guess a letter they have already guessed)
     ![In-game wrong input: digit](documentation/features/input_validation_digit.png)
+    ![In-game wrong input: special character](documentation/features/input_validation_special_char.png)
+    ![In-game wrong input: empty input](documentation/features/input_validation_empty_input.png)
     ![In-game wrong input: multiple letters](documentation/features/input_validation_multiple_char.png)
     ![In-game wrong input: guessing a correct letter that has already been guessed](documentation/testing/input_validation_duplicate_correct_guess.png)
     ![In-game wrong input: guessing a wrong letter that has already been guessed](documentation/testing/input_validation_duplicate_wrong_guess.png)
@@ -102,6 +104,16 @@ Similarly, when guessing letters in a secret word, if a guess was input as a cap
 
 ![Fix so user can choose difficulty level in uppercase](documentation/testing/capital_letters_fix2.png)
 ![Fix so user can guess letters in uppercase](documentation/testing/capital_letters_fix1.png)
+
+#### Fixing input validation so special character or empty input guesses are detected in gameplay
+
+Within the Hangman game class, my initial helper method ```invalid_input_digit()``` was only checking if the users guess during gameplay was a number and would then not accept it as a valid guess and notify the user to try again. This however didn't account for special characters or empty input guesses which meant users would lose a life and not receive feedback that their input was invalid. 
+
+I updated the helper method to ```invalid_input_not_alpha()``` to instead check for if the guess was alphabetical in order to disallow all non-alphabetical input options, notify the user that their input was invalid and keep the hangman drawn to the same point it was before and the amount of lives the same as before the invalid guess.
+
+![Fix so user is notified and doesn't lose laves when guessing a non-alphabetical character](documentation/features/input_validation_digit.png)
+(documentation/features/input_validation_special_char)
+(documentation/features/input_validation_empty_input.png)
 
 ### Unfixed Bugs
 
