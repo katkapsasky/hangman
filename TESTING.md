@@ -111,7 +111,9 @@ Within the Hangman game class, my initial helper method ```invalid_input_digit()
 
 I updated the helper method to ```invalid_input_not_alpha()``` to instead check for if the guess was alphabetical in order to disallow all non-alphabetical input options, notify the user that their input was invalid and keep the hangman drawn to the same point it was before and the amount of lives the same as before the invalid guess.
 
-![Fix so user is notified and doesn't lose laves when guessing a non-alphabetical character](documentation/features/input_validation_digit.png)(documentation/features/input_validation_special_char.png)(documentation/features/input_validation_empty_input.png)
+![Fix so user is notified and doesn't lose lives when guessing a number](documentation/features/input_validation_digit.png)
+![Fix so user is notified and doesn't lose laves when guessing a special character](documentation/features/input_validation_special_char.png)
+![Fix so user is notified and doesn't lose laves when guessing an empty input](documentation/features/input_validation_empty_input.png)
 
 ### Unfixed Bugs
 
