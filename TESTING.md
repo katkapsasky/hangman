@@ -68,10 +68,10 @@ and then I added an if statement to check for guessed incorrect letters and an e
             "guessed that letter!"
         )
         continue
-        # If input is a letter remember it
-        # so user is notified if they guess it again
-        if self.invalid_input_not_alpha(user_input):
-            self.used_words.add(user_input)
+    # If input is a letter remember it
+    # so user is notified if they guess it again
+    if self.invalid_input_not_alpha(user_input):
+        self.used_words.add(user_input)
 ```
 
 #### Text formatting
