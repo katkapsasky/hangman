@@ -9,10 +9,6 @@ from easy import *
 from medium import *
 from hard import *
 
-# Import program to check if user input contains special characters
-# when playing the game
-import re
-
 # Module to enable function to clear screen in game play
 import os
 
@@ -178,24 +174,12 @@ class Hangman():
     def invalid_input_not_alpha(self, input_):
         """
         Method to validate if the user input is correct
-        Checks if the user inputs a number
+        Checks if the user inputs anything but an
+        alphabetical character
+        e.g. numbers, special characters or empty inputs
         """
         return input_.isalpha()
 
-    # def invalid_input_digit(self, input_):
-    #     """
-    #     Method to validate if the user input is correct
-    #     Checks if the user inputs a number
-    #     """
-    #     return input_.isdigit()
-
-    # def invalid_input_special_char(self, input_):
-    #     """
-    #     Method to validate if the user input is correct
-    #     Checks if the user inputs a special character
-    #     """
-    #     regex = re.compile('[@_!#$%^&*()<>?/|}{~:]')
-    #     return (regex.search(input_) is not None)
 
     def invalid_input_len(self, input_):
         """
@@ -245,21 +229,6 @@ class Hangman():
         while self.wrong_guess < len(HANGMAN):
             self.print_game_status()
             user_input = self.get_user_input()
-            # Check if input is a digit
-            # if self.invalid_input_digit(user_input):
-            #     print(
-            #         f"{Back.RED}{Fore.WHITE}You entered a number! "
-            #         "Please only guess letters!"
-            #     )
-            #     continue
-            # # Check if input is a special character
-            # if self.invalid_input_special_char(user_input):
-            #     print(
-            #         f"{Back.RED}{Fore.WHITE}You entered a special "
-            #         "character!"
-            #         "Please only guess letters!"
-            #     )
-            #     continue
             # Check input is only one letter
             if self.invalid_input_len(user_input):
                 clear()
@@ -276,13 +245,6 @@ class Hangman():
                     "guessed that letter!"
                 )
                 continue
-            # # Check if an incorrect letter has already been guessed
-            # if user_input in self.used_words:
-            #     print(
-            #         f"{Back.RED}{Fore.WHITE}You have already "
-            #         "guessed that letter!"
-            #     )
-            #     continue
             # If input is a letter remember it
             # so user is notified if they guess it again
             if self.invalid_input_not_alpha(user_input):
@@ -307,7 +269,7 @@ class Hangman():
                         f"\n{Fore.GREEN}Yay! You won!"
                     )
                     print(f"The word is {Fore.GREEN}{secret_word}")
-                    input("Press ENTER to proceed\n")
+                    input("Press any key to proceed\n")
                     clear()
                     # Check if user would like to play again
                     user_replay = self.replay()
