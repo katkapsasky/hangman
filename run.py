@@ -45,11 +45,10 @@ def get_username():
     Function to get and print username
     """
     while True:
-        clear()
         global NAME
         NAME = input("Please enter your name:\n")
-        clear()
         if NAME.isalpha():
+            clear()
             print(f"{Fore.CYAN}Hi {NAME}!")
             break
         else:
@@ -289,7 +288,7 @@ class Hangman():
                 self.print_game_status()
                 print(f"\n{Fore.RED}Oh no! You lost!")
                 print(f"The word is {Fore.RED}{secret_word}")
-                input("Press ENTER to proceed")
+                input("Press any key to proceed")
                 clear()
                 while True:
                     user_prompt = self.replay()
