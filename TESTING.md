@@ -59,19 +59,20 @@ The input validation when a user guesses a letter they have already guessed was 
 
 To fix this, I created an empty set to store user guesses,
 ``` self.used_words = set() ``` 
-and then I added an if statement to check for guessed incorrect letters and an else statement to add and remember incorrect letters so the user will receive a message they have already guessed a letter whether it was correct or incorrect and an additional part of the hangman isn't drawn. 
+and then I added an if statement to check for guessed incorrect or correct letters, so the user will receive a message if they guess the same letter more than once whether it was correct or incorrect and an additional part of the hangman isn't drawn. I also added an if statement to store all guesses which are alphabetical. 
 
-``` # Check if a letter has already been guessed
-    if user_input in self.progress or user_input in self.used_words:
-        print(
-            f"{Back.RED}{Fore.WHITE}You have already "
-            "guessed that letter!"
-        )
-        continue
-    # If input is a letter remember it
-    # so user is notified if they guess it again
-    if self.invalid_input_not_alpha(user_input):
-        self.used_words.add(user_input)
+``` 
+# Check if a letter has already been guessed
+if user_input in self.progress or user_input in self.used_words:
+    print(
+        f"{Back.RED}{Fore.WHITE}You have already "
+        "guessed that letter!"
+    )
+    continue
+# If input is a letter remember it
+# so user is notified if they guess it again
+if self.invalid_input_not_alpha(user_input):
+    self.used_words.add(user_input)
 ```
 
 #### Text formatting
@@ -80,12 +81,13 @@ Another bug I found was in text formatting. Some of the text printed to the cons
 
 By formatting my text over multiple lines and adding in new lines I was able to make the text easier to read and fix the errors.
 
-``` print(
-                f"{Back.BLUE}Every wrong guess will result in "
-                "part of the hangman being drawn. \n"
-                "If you guess incorrectly 7 times, "
-                " the hangman will be fully formed and you lose."
-            )
+``` 
+print(
+    f"{Back.BLUE}Every wrong guess will result in "
+    "part of the hangman being drawn. \n"
+    "If you guess incorrectly 7 times, "
+    " the hangman will be fully formed and you lose."
+)
 ```
 
 #### Replay function after winning
